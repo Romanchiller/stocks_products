@@ -2,7 +2,8 @@ name: Testing an deployment of stocks_products
 
 on:
   push:
-    - master
+    branches:
+      - master
 
 jobs:
   testing:
