@@ -29,7 +29,7 @@ jobs:
         --health-timeout 5s
         --health-retries 5
   steps:
-    - name: Проверка наличия изменений в репозитории
+    - name: Proverka izmeneniy v repozitorii
       uses: actions/checkout@v3
 
     - name: Установка питона и доп библиотек
