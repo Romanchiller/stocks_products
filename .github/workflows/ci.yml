@@ -1,0 +1,49 @@
+name: Testing an deployment of stocks_products
+
+on:
+  push:
+    - master
+
+jobs:
+  testing:
+    runs -on: ubuntu-22.04
+    env:
+      HOSTS_ALLOWED: ${{ secrets.ALLOWED_HOSTS }}
+      IS_DEBUG: ${{ secrets.DEBUG}}
+      NAME_DB: ${{ secrets.DB_NAME}}
+      PASSWORD_DB: ${{ secrets.DB_PASSWORD}}
+      USER_DB: ${{ secrets.DB_USER}}
+  services:
+    postgresql_service:
+      image: postgres:12
+      env:
+        POSTGRES_DB: ${{ env.NAME_DB }}
+        POSTGRES_USER: ${{ env.USER_DB }}
+        POSTGRES_PASSWORD: ${{ env.PASSWORD_DB }}
+      ports:
+        - 5432:5432
+      options:
+        --health-cmd pg_isready
+        --health-interval 5s
+        --health-timeout 5s
+        --health-retries 5
+  steps:
+    - name: Проверка наличия изменений в репозитории
+      uses: actions/checkout@v3
+
+    - name: Установка питона и доп библиотек
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Установка зависимостей
+      run: pip install -r requirements.txt
+
+    - name: Линтинг
+      run: flake8 logistic --exclude logistic/migrations
+
+    - name: Тестирование
+      run: pytest
+
+#    - name: Деплой
+#      uses:
