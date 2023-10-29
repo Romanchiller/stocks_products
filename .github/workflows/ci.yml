@@ -32,19 +32,19 @@ jobs:
       - name: Proverka izmeneniy v repozitorii
         uses: actions/checkout@v3
 
-    - name: Установка питона и доп библиотек
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - name: Установка питона и доп библиотек
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: Установка зависимостей
-      run: pip install -r requirements.txt
+      - name: Установка зависимостей
+        run: pip install -r requirements.txt
 
-    - name: Линтинг
-      run: flake8 logistic --exclude logistic/migrations
+      - name: Линтинг
+        run: flake8 logistic --exclude logistic/migrations
 
-    - name: Тестирование
-      run: pytest
+      - name: Тестирование
+        run: pytest
 
 #    - name: Деплой
 #      uses:
