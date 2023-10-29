@@ -14,8 +14,10 @@ class Stock(models.Model):
         through='StockProduct',
         related_name='stocks',
     )
+
     class Meta:
         ordering = ['-id']
+
 
 class StockProduct(models.Model):
     stock = models.ForeignKey(
