@@ -1,6 +1,6 @@
 name: Testing an deployment of stocks_products
 
-on:
+  on:
   push:
     branches:
       - master
