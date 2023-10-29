@@ -2,6 +2,7 @@ from unittest import TestCase
 
 from rest_framework.test import APIClient
 
+
 class TestSmth(TestCase):
     def sample_test(self):
         client = APIClient()
