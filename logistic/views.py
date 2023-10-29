@@ -20,4 +20,4 @@ class StockViewSet(ModelViewSet):
     serializer_class = StockSerializer
     filterset_fields = ['products']
     # при необходимости добавьте параметры фильтрации
-    paginator = Paginator(queryset, 10)
+
