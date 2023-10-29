@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from rest_framework.test import APIClient
 
-
+@pytest.mark.django_db
 class TestSmth(TestCase):
     def sample_test(self):
         client = APIClient()
