@@ -29,8 +29,8 @@ jobs:
         --health-timeout 5s
         --health-retries 5
   steps:
-    - name: Proverka izmeneniy v repozitorii
-      uses: actions/checkout@v3
+      - name: Proverka izmeneniy v repozitorii
+        uses: actions/checkout@v3
 
     - name: Установка питона и доп библиотек
       uses: actions/setup-python@v4
