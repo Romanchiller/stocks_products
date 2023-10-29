@@ -1,11 +1,10 @@
 name: Testing an deployment of stocks_products
-
 on:
   push:
     branches:
       - master
 
-jobs:
+  jobs:
   testing:
     runs -on: ubuntu-22.04
     env:
