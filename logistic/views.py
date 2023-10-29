@@ -12,6 +12,7 @@ class ProductViewSet(ModelViewSet):
     filter_backends = [SearchFilter]
     search_fields = ['title', 'description']
     # при необходимости добавьте параметры фильтрации
+#
 
 
 class StockViewSet(ModelViewSet):
