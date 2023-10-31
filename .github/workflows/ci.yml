@@ -47,7 +47,7 @@ jobs:
         run: flake8 logistic --exclude logistic/migrations
 
       - name: Тестирование
-        run: python manage.py test, pytest
+        run: pytest
         env:
           DEBUG: ${{ env.IS_DEBUG }}
           DB_USER: ${{ env.USER_DB}}
