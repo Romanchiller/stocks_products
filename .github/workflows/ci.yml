@@ -48,6 +48,7 @@ jobs:
 
       - name: Тестирование
         run: python manage.py test
+        run: pytest
         env:
           DEBUG: ${{ env.IS_DEBUG }}
           DB_USER: ${{ env.USER_DB}}
