@@ -46,7 +46,7 @@ jobs:
       - name: Линтинг
         run: flake8 logistic --exclude logistic/migrations
 
-      - name: Тестирование
+      - name: Тестирование pytest
         run: pytest
         env:
           DEBUG: ${{ env.IS_DEBUG }}
@@ -58,6 +58,20 @@ jobs:
           DB_ENGINE: ${{ env.DB_ENGINE }}
           DB_PORT: ${{ env.PORT_DB }}
           DB_HOST: ${{ env.HOST_DB }}
+
+      - name: Тестирование unittest
+        run: python manage.py test
+        env:
+          DEBUG: ${{ env.IS_DEBUG }}
+          DB_USER: ${{ env.USER_DB}}
+          DB_PASSWORD: ${{ env.PASSWORD_DB}}
+          DB_NAME: ${{ env.NAME_DB }}
+          ALLOWED_HOSTS: ${{ env.HOSTS_ALLOWED }}
+          SECRET_KEY: ${{ env.SECRET_KEY }}
+          DB_ENGINE: ${{ env.DB_ENGINE }}
+          DB_PORT: ${{ env.PORT_DB }}
+          DB_HOST: ${{ env.HOST_DB }}
+
 
 #    - name: Деплой
 #      uses:
