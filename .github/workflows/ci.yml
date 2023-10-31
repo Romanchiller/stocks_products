@@ -16,7 +16,7 @@ jobs:
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
       PORT_DB: ${{ secrets.DB_PORT }}
       HOST_DB: ${{ secrets.DB_HOST }}
-      DB_EBGINE: ${{ secrets.DB_ENGINE}}
+      DB_ENGINE: ${{ secrets.DB_ENGINE}}
     services:
       postgresql_service:
         image: postgres:12
@@ -47,7 +47,7 @@ jobs:
         run: flake8 logistic --exclude logistic/migrations
 
       - name: Тестирование
-        run: pytest
+        run: python manage.py test
 
 #    - name: Деплой
 #      uses:

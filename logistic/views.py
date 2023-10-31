@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from rest_framework.filters import SearchFilter
 from rest_framework.viewsets import ModelViewSet
 
@@ -19,3 +20,6 @@ class StockViewSet(ModelViewSet):
     serializer_class = StockSerializer
     filterset_fields = ['products']
     # при необходимости добавьте параметры фильтрации
+
+def sample_view(request):
+    return HttpResponse('Привет')
