@@ -2,7 +2,7 @@ import pytest
 from rest_framework.test import APIClient
 
 
-@pytest.mark.django_db
+# @pytest.mark.django_db
 def test_api():
     client = APIClient()
 
