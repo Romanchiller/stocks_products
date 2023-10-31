@@ -21,5 +21,6 @@ class StockViewSet(ModelViewSet):
     filterset_fields = ['products']
     # при необходимости добавьте параметры фильтрации
 
+
 def sample_view(request):
     return HttpResponse('Привет')
