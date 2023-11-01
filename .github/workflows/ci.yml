@@ -73,6 +73,10 @@ jobs:
           DB_HOST: ${{ env.HOST_DB }}
 
 
-#    - name: Деплой
-#      uses:
-#
+      - name: Деплой
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: expect /home/roman/stocks_products/deploy.exp
