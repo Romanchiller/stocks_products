@@ -79,7 +79,3 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: expect /home/roman/stocks_products/deploy.exp
-
-
-
-      z
